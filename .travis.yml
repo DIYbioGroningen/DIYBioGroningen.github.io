@@ -1,7 +1,7 @@
 language: node_js
 branches:
   only:
-  - source
+  - master
 node_js:
 - '7'
 before_install:
