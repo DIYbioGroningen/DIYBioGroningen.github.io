@@ -2,3 +2,8 @@ feeling-responsive-gh-pages
 _site
 node_modules
 medialibrary
+.sass-cache
+.jekyll-metadata
+npm-debug.log
+Gemfile.lock
+gulp_examples

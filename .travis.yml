@@ -1,0 +1,33 @@
+language: node_js
+branches:
+  only:
+  - source
+node_js:
+- '7'
+before_install:
+- rvm install 2.4.0
+before_script:
+- npm i -g gulp-cli
+- npm install
+- gem install bundler
+- bundle install
+script:
+- gulp build-clean  --production
+after_success:
+- git clone https://$GITHUB_REPO
+- git branch
+- cd $(basename ${GITHUB_REPO%.git})
+- git config user.name "Travis CI"
+- git config user.email ${EMAIL}
+- rsync -az --delete --exclude '.git*' ../_site/ .
+- touch .nojekyll
+- git add -A .
+- git commit -m "Generated Jekyll site by Travis CI - ${TRAVIS_BUILD_NUMBER}"
+- git push --force "https://user:${GH_TOKEN}@${GITHUB_REPO}" HEAD:${REPO_TARGET_BRANCH}
+env:
+  global:
+  - NOKOGIRI_USE_SYSTEM_LIBRARIES=true
+  - GITHUB_REPO: github.com/DIYbioGroningen/DIYBioGroningen.github.io
+  - REPO_TARGET_BRANCH: site
+  - secure: ygui0LH3riD89lbdsvTD/KCK3N/OgzPEbu9VxarH3qGGQm5V2vA0Ihp6yNd8OPPXp67G2LbI+NF+9ICwrUE2MVkBnzsr/frxV1L8hxrPvOyWUMS7dTMLQR582u4vK5y/ul0oPWwQKG/D1NtXdyg2lpQhpsB5k/p6VdFh2U9I8WFE1LVwEzM1/WWD5yznWodjt9tUbSdnIDW89b7Aj9OLAsIs5aG9R7Jxu95z+SQl2gvHrpFa8+p2uYIvU0rzXUAEfk6rmet9/u8KwwNmYkUKm5TbKbkFjYFco5dPV/5tX2A7QUh0zmvNz+TjowFqJKu7SB1bVHcbkL9x3nKB6DkHaXxOXmQS2hQDFd21N4Om6/KvD3v/uHX12GAM/yKvTftY5vwVS/dp/8fibzttwpICz+fR5cxTlDWPv1iv6omdzHWfAfpHV82TMpp7nC04YslTJlBrOFPG4WaO16hjigxeVLoKWo261a0C/OWPK84yHISWR87d0rk0RWpMXeszOz8DrTRN2wFkmvcy10Jz8TqO9WPjGZNjNWGkkHuJ0YeT+1p79JE6MC63DUaezR/P64jPbCE+nu0tivkoCUGme+u5MzZuVtTOvIcFFo0ohz3qoo6PFRykIl9Ukwr9XwgzYy4n05jglUnY+u8tS6kGRsG83PUw/+zSzd0Y2rFc6TsUXks=
+  - secure: Wu6/ejDL/Fj4ULa4nchKmetdnLmVK7iDOY9vhgldWwSrQkaJkvp1bHYdl5LfBUDZawb1TY5qXPVNNy0O3KE6IcM26ie06EwQ/JQw5EfPwbl9ZrD6laihVoIou81jJpHM/LO3a3OafSjo9BGt63cX4a61nigURTnq9+PuhacP4NuIqc2KF8CosudfYYlNbAI7ea5UjYs0bvk9iEX7AI0pGLMstPG/80E/7dtPXhaEUn+NZnTE8ivjwAsfhMCcU0WhJowLqIybdZ/y0SJV+tA9PkVJkzI4X1kIBfmy/H/u1en2tGNRmmGXDFJu3x6oOpGy/B0Mu0nM4bkIgbO+bqMhjMk15+89GhQzau6QU1stSQRihMY6VqA6yylecsVYIkSlzaT3DqX5Hf8zx5XPs2mNYlIIjfGsgjCH7tOpObo+2X0Nn+8ecWyR6395Vo6Df/uYRjV1xCx1u8dKRxDaOwxzWkI2YeP89uPmDdb7YPUGxID5P27i/5PsoudHr/FWUPrmAPQj25nzlyRrRfZlTCEy/k/mxyixf/+Onf3xtVoeZhWDUdSOao2qaPAIU2VMRLdDjYJD8K6VkvdREABchhDRbQ/h41LjpDt4LcZ2bezki9EAbs/D4MMuA5O2mv+aPaD1EYhh/zj+Q2j38EB3hhExTpFdntN+HsJcX3KqzsxLJbs=
