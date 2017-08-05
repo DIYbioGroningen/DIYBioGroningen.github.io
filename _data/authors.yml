@@ -12,7 +12,13 @@ phlow: # replace this with your info
   email:
   twitter: "@phlow"
 
-vcaldas: # replace this with your info
+richelbilderbeek:
+  name: "Richel Bilderbeek"
+  siterole: "copywriter"
+  uri: http://www.richelbilderbeek.nl/
+  email: "richel@richelbilderbeek.nl"
+  
+vcaldas:
   name: "Victor"
   siterole: "webmaster, developer, copywriter, designer"
   uri: http://victorcaldas.com/
