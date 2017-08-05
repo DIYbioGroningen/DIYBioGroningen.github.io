@@ -9,18 +9,18 @@
   - title: "Blog Archive"
     url: "/blog/archive/"
 
-- title: Events
-  url: "/getting-started/"
-  side: left
+# - title: Events
+#   url: "/getting-started/"
+#   side: left
 
-- title: "Projects"
-  url: "/design/"
-  side: left
-  dropdown:
-  - title: "Project 1"
-    url: "/"
-  - title: "Project 2y"
-    url: "/"
+# - title: "Projects"
+#   url: "/design/"
+#   side: left
+#   dropdown:
+#   - title: "Project 1"
+#     url: "/"
+#   - title: "Project 2y"
+#     url: "/"
 
 
 
