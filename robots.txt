@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://diybiogroningen.github.io/sitemap.xml
