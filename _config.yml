@@ -11,10 +11,10 @@
 title: 'DIY Bio Groningen'
 
 # The slogan describes your website and is used on homepage in <title> and other important places
-slogan: 'A vibrant community of Makers, Hackers and Do-it-yourself biologists'
+slogan: 'A community of Makers, Hackers and Do-it-yourself biologists'
 
 # The description is used on homepage and in the footer to quickly describe your website. Use a maximum of 150 characters for SEO-purposes.
-description: '»DIY Bio Groningen is a vibrant community of Makers, Hackers and Do-it-yourself biologists enganged in citizen science and open-source advocation.'
+description: '»DIY Bio Groningen is a community of Makers, Hackers and Do-it-yourself biologists enganged in citizen science and open-source advocation.'
 
 # The credits show up in the includes/_footer.html – It would be nice of you to leave a link to Phlow or Feeling Responsive as a thank you :)
 credits: '<p>Created with &hearts; by DIY Bio Groningen based on <a href="http://phlow.github.io/feeling-responsive/">Feeling Responsive</a>.</p>'
